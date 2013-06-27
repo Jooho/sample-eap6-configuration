@@ -49,14 +49,16 @@
             <inet-address value="${jboss.bind.address.unsecure:127.0.0.1}"/>
         </interface>
     </interfaces>
-
+<!-- Jhouse Setting -->
  	<jvms>
  	   <jvm name="default">
           <heap size="64m" max-size="256m"/>
           <permgen size="256m" max-size="256m"/>
             <jvm-options>
                 <option value="-server"/>
+<!-- Setting 1 start -->
                 <option value="-javaagent:/home/jooho/Applications/JBoss/EAP/jboss-eap-6.1/domain/configuration/Agent.jar"/>
+<!-- Setting 1 end -->
             </jvm-options>
        </jvm>
  	</jvms>
@@ -72,6 +74,7 @@
            -->
         </server>
         <server name="server-two" group="main-server-group" auto-start="true">
+<!-- Setting 2 start -->
             <jvm name="default" debug-enabled="false">
                <heap size="1024m" max-size="2048m"/>
                <permgen max-size="256m"/>
@@ -80,6 +83,7 @@
                    <option value="-Dcom.wily.introscope.agent.agentName=clvcpa1_Server2"/>
                </jvm-options>
             </jvm>
+<!-- Setting 2 end -->
             <!-- server-two avoids port conflicts by incrementing the ports in
                  the default socket-group declared in the server-group -->
             <socket-bindings port-offset="150"/>
